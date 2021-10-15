@@ -101,15 +101,12 @@
 </html>
 
 <script>
-    
     $(document).ready(function(){
-
         var array_carousel   = document.querySelectorAll(".carousel");
         var array_prevbutton = document.querySelectorAll(".carousel-control-prev");
         var array_nextbutton = document.querySelectorAll(".carousel-control-next");
 
         array_carousel.forEach(function(item, index){
-            //item.dataset["bsTarget"] = "carousel"+(index+1);
             item.setAttribute("id", "carousel"+(index+1));
             console.log(item);
         });
@@ -122,9 +119,5 @@
             item.dataset["bsTarget"] = "#carousel"+(index+1);
             console.log(item);
         });
-
     });
-
-
-    
 </script>

@@ -24,15 +24,12 @@
   <div style="margin-left: 20px; margin-bottom: 20px;">
     <strong>Images:</strong>
   </div>
-  <%#= image_tag(@property.image) %>
-  <%#= @property.address %>
-
+  
   <% (0...@property.images.count).each do |image| %>
     <div style="width: 270px; margin-left: 20px; margin-bottom: 20px;">
       <%= image_tag(@property.images[image], style: 'width: 100%; height: auto') %>
     <div>  
   <% end %>
-
 
 </p>
 

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TABAS - Rent a property</title>
+
+    <style type="text/css">
+        .reset {margin: 0; padding: 0; box-sizing: border-box;}
+        .container-fluid {width: 100%;}
+        .card-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 5%;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 270px;
+            height: 330px;
+            margin: 10px;
+        }
+
+        .card-image {
+            background-color: aqua;
+            height: 150px;
+            margin-bottom: 30px;
+            background-size: cover;
+        }
+
+        .btn-properties {
+            font-size: 19px;
+            text-decoration: none;
+            color: white !important;
+        }
+        .btn-properties:link {
+            color: white;
+        }
+        .btn-properties:hover {
+            color: white;
+        }
+        .btn-properties:active {
+            color: white;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid reset">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">TABAS</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <%= link_to "Properties include", properties_path, class: "btn-properties" %>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="main-container">
+            <div class="card-container">
+                <% @properties.each do |property|%>
+                    <div class="card">
+                        <div class="card-image">
+                            <div id="" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                                <div class="carousel-inner">
+                                    <% (0...property.images.count).each_with_index do |image, index| %>
+                                        <% if index.eql?(0) %>
+                                            <div class="carousel-item active" style="width: 270px;">
+                                                <%= image_tag(property.images[image], style: 'width: 100%; height: auto') %>
+                                            </div>
+                                            <% next %>
+                                        <% end %>
+                                        <div class="carousel-item" style="width: 270px;">
+                                            <%= image_tag(property.images[image], style: 'width: 100%; height: auto') %>
+                                        </div>
+                                    <% end %> 
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>    
+                            </div>
+                        </div>
+                        <h3><%= property.name %></h3>
+                        <p><%= property.description %></p>
+                    </div>   
+                <% end %>
+            </div>
+        <section>
+    </div>
+</body>
+</html>
+
+<script>
+    
+    $(document).ready(function(){
+
+        var array_carousel   = document.querySelectorAll(".carousel");
+        var array_prevbutton = document.querySelectorAll(".carousel-control-prev");
+        var array_nextbutton = document.querySelectorAll(".carousel-control-next");
+
+        array_carousel.forEach(function(item, index){
+            //item.dataset["bsTarget"] = "carousel"+(index+1);
+            item.setAttribute("id", "carousel"+(index+1));
+            console.log(item);
+        });
+        
+        array_prevbutton.forEach(function(item, index){
+            item.dataset["bsTarget"] = "#carousel"+(index+1);
+            console.log(item);
+        });
+        array_nextbutton.forEach(function(item, index){
+            item.dataset["bsTarget"] = "#carousel"+(index+1);
+            console.log(item);
+        });
+
+    });
+
+
+    
+</script>

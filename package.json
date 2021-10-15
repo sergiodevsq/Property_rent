@@ -1,0 +1,8 @@
+{
+  "name": "property_rent",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "jquery": "^3.6.0"
+  }
+}

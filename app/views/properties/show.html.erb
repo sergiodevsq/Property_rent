@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @property.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @property.description %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @property.city %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @property.address %>
+</p>
+
+<p>
+  <div style="margin-left: 20px; margin-bottom: 20px;">
+    <strong>Images:</strong>
+  </div>
+  <%#= image_tag(@property.image) %>
+  <%#= @property.address %>
+
+  <% (0...@property.images.count).each do |image| %>
+    <div style="width: 270px; margin-left: 20px; margin-bottom: 20px;">
+      <%= image_tag(@property.images[image], style: 'width: 100%; height: auto') %>
+    <div>  
+  <% end %>
+
+
+</p>
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>

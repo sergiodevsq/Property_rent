@@ -1,24 +1,9 @@
-# README
+# Versions used
+    - Ruby 2.5.8
+    - Rails 5.2.6
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Insttructions for testing application
+    - Clone repository to local machine
+    - At the root of the project run rails s to start 
+        server at http://localhost:3000
+    
